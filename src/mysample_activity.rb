@@ -22,10 +22,8 @@ class MysampleActivity
   end
 
   private
-
   def butterfly
     @text_view.text = "What hath Matz wrought!"
     toast "Flipped a bit via butterfly"
   end
-
 end
