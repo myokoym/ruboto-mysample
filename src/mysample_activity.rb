@@ -88,6 +88,10 @@ class BrainTrainingActivity
                              :width => :match_parent,
                              :gravity => :center,
                              :text_size => 40.0)
+      @percentage_view = text_view(:text => "0%",
+                             :width => :match_parent,
+                             :gravity => :center,
+                             :text_size => 20.0)
       @time_view = text_view(:text => "0 sec/ans",
                              :width => :match_parent,
                              :gravity => :center,
@@ -112,6 +116,7 @@ class BrainTrainingActivity
     if (@num1 < @num2) == bool
       @passed += 1
     end
+    @percentage_view.text = "#{"%3d" % (100.0 * @passed / @count)} %"
     @result_view.text = "#{@passed} / #{@count}"
     @num1 = Random.rand(10)
     @num2 = Random.rand(10)
