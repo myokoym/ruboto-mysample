@@ -10,7 +10,14 @@ class MysampleActivity
     super
     set_title("My samples")
 
-    self.content_view =
+    self.content_view = top_layout
+  rescue
+    puts "Exception creating activity: #{$!}"
+    puts $!.backtrace.join("\n")
+  end
+
+  private
+  def top_layout
         linear_layout(:orientation => :vertical) do
           @text_view = text_view(:text => "Take anything you would like.",
                                  :id => 42,
@@ -22,12 +29,8 @@ class MysampleActivity
                  :id => 43,
                  :on_click_listener => proc { hello })
         end
-  rescue
-    puts "Exception creating activity: #{$!}"
-    puts $!.backtrace.join("\n")
   end
 
-  private
   def hello
     toast "Hello, World!"
   end
