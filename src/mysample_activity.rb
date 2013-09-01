@@ -102,10 +102,12 @@ class BrainTrainingActivity
         button(:text => "YES",
                :height => :match_parent,
                :layout => {:weight= => 1},
+               :text_size => 40.0,
                :on_click_listener => proc { check(true) })
         button(:text => "NO",
                :height => :match_parent,
                :layout => {:weight= => 1},
+               :text_size => 40.0,
                :on_click_listener => proc { check(false) })
       end
     end
