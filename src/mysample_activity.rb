@@ -3,8 +3,6 @@ require "ruboto/util/toast"
 
 ruboto_import_widgets :Button, :LinearLayout, :TextView
 
-# http://xkcd.com/378/
-
 class MysampleActivity
   def onCreate(bundle)
     super
