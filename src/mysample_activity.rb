@@ -7,7 +7,6 @@ class MysampleActivity
   def onCreate(bundle)
     super
     set_title("My samples")
-
     self.content_view = top_layout
   rescue
     puts "Exception creating activity: #{$!}"
