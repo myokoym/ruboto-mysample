@@ -74,6 +74,7 @@ class BrainTrainingActivity
 
   private
   def top_layout
+    @start_time = Time.now
     @count = 0
     @passed = 0
     @num1 = Random.rand(10)
@@ -87,6 +88,10 @@ class BrainTrainingActivity
                              :width => :match_parent,
                              :gravity => :center,
                              :text_size => 40.0)
+      @time_view = text_view(:text => "0 sec/ans",
+                             :width => :match_parent,
+                             :gravity => :center,
+                             :text_size => 20.0)
       linear_layout(:orientation => :horizontal,
                     :layout => {:width= => :match_parent,
                                 :height= => :wrap_content}) do
@@ -101,6 +106,8 @@ class BrainTrainingActivity
   end
 
   def check(bool)
+    sec_by_ans = (Time.now - @start_time) / @count
+    @time_view.text = "#{sprintf("%.3f", sec_by_ans)} sec/ans"
     @count += 1
     if (@num1 < @num2) == bool
       @passed += 1
