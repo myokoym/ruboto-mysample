@@ -29,6 +29,10 @@ class MysampleActivity
              :width => :match_parent,
              :id => 44,
              :on_click_listener => proc { sub_activity })
+      button(:text => "Brain Training!",
+             :width => :match_parent,
+             :id => 45,
+             :on_click_listener => proc { brain_training })
     end
   end
 
@@ -38,6 +42,10 @@ class MysampleActivity
 
   def sub_activity
     start_ruboto_activity(:class_name => "SubActivity")
+  end
+
+  def brain_training
+    start_ruboto_activity(:class_name => "BrainTrainingActivity")
   end
 end
 
@@ -54,5 +62,52 @@ class SubActivity
       button(:text => "finish!",
              :on_click_listener => proc { self.finish })
     end
+  end
+end
+
+class BrainTrainingActivity
+  def onCreate(bundle)
+    super
+    set_title("Brain Training")
+    self.content_view = top_layout
+  end
+
+  private
+  def top_layout
+    @count = 0
+    @passed = 0
+    @num1 = Random.rand(10)
+    @num2 = Random.rand(10)
+    linear_layout(:orientation => :vertical) do
+      @problem_view = text_view(:text => "#{@num1} < #{@num2}",
+                             :width => :match_parent,
+                             :gravity => :center,
+                             :text_size => 60.0)
+      @result_view = text_view(:text => "#{@passed} / #{@count}",
+                             :width => :match_parent,
+                             :gravity => :center,
+                             :text_size => 40.0)
+      linear_layout(:orientation => :horizontal,
+                    :layout => {:width= => :match_parent,
+                                :height= => :wrap_content}) do
+        button(:text => "YES",
+               :layout => {:weight= => 1},
+               :on_click_listener => proc { check(true) })
+        button(:text => "NO",
+               :layout => {:weight= => 1},
+               :on_click_listener => proc { check(false) })
+      end
+    end
+  end
+
+  def check(bool)
+    @count += 1
+    if (@num1 < @num2) == bool
+      @passed += 1
+    end
+    @result_view.text = "#{@passed} / #{@count}"
+    @num1 = Random.rand(10)
+    @num2 = Random.rand(10)
+    @problem_view.text = "#{@num1} < #{@num2}"
   end
 end
