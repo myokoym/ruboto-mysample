@@ -8,19 +8,19 @@ ruboto_import_widgets :Button, :LinearLayout, :TextView
 class MysampleActivity
   def onCreate(bundle)
     super
-    set_title("Domo arigato, Mr Ruboto!")
+    set_title("My samples")
 
     self.content_view =
         linear_layout(:orientation => :vertical) do
-          @text_view = text_view(:text => "What hath Matz wrought?",
+          @text_view = text_view(:text => "Take anything you would like.",
                                  :id => 42,
                                  :width => :match_parent,
                                  :gravity => :center,
-                                 :text_size => 48.0)
-          button(:text => "M-x butterfly",
+                                 :text_size => 20.0)
+          button(:text => "Hello, World!",
                  :width => :match_parent,
                  :id => 43,
-                 :on_click_listener => proc { butterfly })
+                 :on_click_listener => proc { hello })
         end
   rescue
     puts "Exception creating activity: #{$!}"
@@ -28,8 +28,7 @@ class MysampleActivity
   end
 
   private
-  def butterfly
-    @text_view.text = "What hath Matz wrought!"
-    toast "Flipped a bit via butterfly"
+  def hello
+    toast "Hello, World!"
   end
 end
