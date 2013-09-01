@@ -98,11 +98,13 @@ class BrainTrainingActivity
                              :text_size => 20.0)
       linear_layout(:orientation => :horizontal,
                     :layout => {:width= => :match_parent,
-                                :height= => :wrap_content}) do
+                                :height= => :match_parent}) do
         button(:text => "YES",
+               :height => :match_parent,
                :layout => {:weight= => 1},
                :on_click_listener => proc { check(true) })
         button(:text => "NO",
+               :height => :match_parent,
                :layout => {:weight= => 1},
                :on_click_listener => proc { check(false) })
       end
