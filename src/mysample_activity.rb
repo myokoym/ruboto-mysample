@@ -26,10 +26,34 @@ class MysampleActivity
              :width => :match_parent,
              :id => 43,
              :on_click_listener => proc { hello })
+      button(:text => "Sub Activity!",
+             :width => :match_parent,
+             :id => 44,
+             :on_click_listener => proc { sub_activity })
     end
   end
 
   def hello
     toast "Hello, World!"
+  end
+
+  def sub_activity
+    start_ruboto_activity(:class_name => "SubActivity")
+  end
+end
+
+class SubActivity
+  def onCreate(bundle)
+    super
+    set_title("Sub Activity")
+    self.content_view = top_layout
+  end
+
+  private
+  def top_layout
+    linear_layout(:orientation => :vertical) do
+      button(:text => "finish!",
+             :on_click_listener => proc { self.finish })
+    end
   end
 end

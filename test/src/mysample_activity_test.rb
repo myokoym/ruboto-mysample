@@ -18,3 +18,8 @@ test('hello button click') do |activity|
   button = activity.findViewById(43)
   button.performClick
 end
+
+test('sub activity button click') do |activity|
+  button = activity.findViewById(44)
+  button.performClick
+end
