@@ -110,9 +110,9 @@ class BrainTrainingActivity
   end
 
   def check(bool)
+    @count += 1
     sec_by_ans = (Time.now - @start_time) / @count
     @time_view.text = "#{sprintf("%.3f", sec_by_ans)} sec/ans"
-    @count += 1
     if (@num1 < @num2) == bool
       @passed += 1
     end
