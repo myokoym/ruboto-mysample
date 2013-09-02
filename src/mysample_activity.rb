@@ -184,7 +184,7 @@ class HitAndBlowActivity
                         :layout => {:width= => :match_parent,
                                     :height= => :match_parent,
                                     :weight= => 1}) do
-            button(:text => "U",
+            button(:text => "+",
                    :height => :match_parent,
                    :layout => {:weight= => 1},
                    :text_size => 40.0,
@@ -196,7 +196,7 @@ class HitAndBlowActivity
                                       :gravity => :center,
                                       :text_size => 40.0)
 
-            button(:text => "D",
+            button(:text => "-",
                    :height => :match_parent,
                    :layout => {:weight= => 1},
                    :text_size => 40.0,
