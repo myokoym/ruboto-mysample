@@ -21,14 +21,17 @@ class MysampleActivity
                 :width => :match_parent,
                 :gravity => :center,
                 :text_size => 20.0)
+
       button(:text => "Hello, World!",
              :width => :match_parent,
              :id => 43,
              :on_click_listener => proc { hello })
+
       button(:text => "Sub Activity!",
              :width => :match_parent,
              :id => 44,
              :on_click_listener => proc { sub_activity })
+
       button(:text => "Brain Training!",
              :width => :match_parent,
              :id => 45,
@@ -84,18 +87,22 @@ class BrainTrainingActivity
                                 :width => :match_parent,
                                 :gravity => :center,
                                 :text_size => 60.0)
+
       @result_view = text_view(:text => "#{@passed} / #{@count}",
                                :width => :match_parent,
                                :gravity => :center,
                                :text_size => 40.0)
+
       @percentage_view = text_view(:text => "0%",
                                    :width => :match_parent,
                                    :gravity => :center,
                                    :text_size => 20.0)
+
       @time_view = text_view(:text => "0 sec/ans",
                              :width => :match_parent,
                              :gravity => :center,
                              :text_size => 20.0)
+
       linear_layout(:orientation => :horizontal,
                     :layout => {:width= => :match_parent,
                                 :height= => :match_parent}) do
@@ -104,6 +111,7 @@ class BrainTrainingActivity
                :layout => {:weight= => 1},
                :text_size => 40.0,
                :on_click_listener => proc { check(true) })
+
         button(:text => "NO",
                :height => :match_parent,
                :layout => {:weight= => 1},
