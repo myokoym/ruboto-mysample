@@ -44,11 +44,11 @@ class MysampleActivity
   end
 
   def sub_activity
-    start_ruboto_activity(:class_name => "SubActivity")
+    start_ruboto_activity(:class_name => SubActivity.name)
   end
 
   def brain_training
-    start_ruboto_activity(:class_name => "BrainTrainingActivity")
+    start_ruboto_activity(:class_name => BrainTrainingActivity.name)
   end
 end
 
