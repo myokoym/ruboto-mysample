@@ -16,11 +16,11 @@ class MysampleActivity
   private
   def top_layout
     linear_layout(:orientation => :vertical) do
-      @text_view = text_view(:text => "Take anything you would like.",
-                             :id => 42,
-                             :width => :match_parent,
-                             :gravity => :center,
-                             :text_size => 20.0)
+      text_view(:text => "Take anything you would like.",
+                :id => 42,
+                :width => :match_parent,
+                :gravity => :center,
+                :text_size => 20.0)
       button(:text => "Hello, World!",
              :width => :match_parent,
              :id => 43,
