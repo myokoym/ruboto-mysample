@@ -7,14 +7,14 @@ class MysampleActivity
   def on_create(bundle)
     super
     set_title("My samples")
-    self.content_view = top_layout
+    self.content_view = content_layout
   rescue
     puts "Exception creating activity: #{$!}"
     puts $!.backtrace.join("\n")
   end
 
   private
-  def top_layout
+  def content_layout
     linear_layout(:orientation => :vertical) do
       text_view(:text => "Take anything you would like.",
                 :id => 42,
@@ -56,11 +56,11 @@ class SubActivity
   def on_create(bundle)
     super
     set_title("Sub Activity")
-    self.content_view = top_layout
+    self.content_view = content_layout
   end
 
   private
-  def top_layout
+  def content_layout
     linear_layout(:orientation => :vertical) do
       button(:text => "finish!",
              :on_click_listener => proc { self.finish })
@@ -72,11 +72,11 @@ class BrainTrainingActivity
   def on_create(bundle)
     super
     set_title("Brain Training")
-    self.content_view = top_layout
+    self.content_view = content_layout
   end
 
   private
-  def top_layout
+  def content_layout
     @start_time = Time.now
     @count = 0
     @passed = 0
