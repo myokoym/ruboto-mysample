@@ -4,7 +4,7 @@ require "ruboto/util/toast"
 ruboto_import_widgets :Button, :LinearLayout, :TextView
 
 class MysampleActivity
-  def onCreate(bundle)
+  def on_create(bundle)
     super
     set_title("My samples")
     self.content_view = top_layout
@@ -50,7 +50,7 @@ class MysampleActivity
 end
 
 class SubActivity
-  def onCreate(bundle)
+  def on_create(bundle)
     super
     set_title("Sub Activity")
     self.content_view = top_layout
@@ -66,7 +66,7 @@ class SubActivity
 end
 
 class BrainTrainingActivity
-  def onCreate(bundle)
+  def on_create(bundle)
     super
     set_title("Brain Training")
     self.content_view = top_layout
