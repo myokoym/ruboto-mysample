@@ -81,17 +81,17 @@ class BrainTrainingActivity
     @num2 = Random.rand(10)
     linear_layout(:orientation => :vertical) do
       @problem_view = text_view(:text => "#{@num1} < #{@num2}",
-                             :width => :match_parent,
-                             :gravity => :center,
-                             :text_size => 60.0)
+                                :width => :match_parent,
+                                :gravity => :center,
+                                :text_size => 60.0)
       @result_view = text_view(:text => "#{@passed} / #{@count}",
-                             :width => :match_parent,
-                             :gravity => :center,
-                             :text_size => 40.0)
+                               :width => :match_parent,
+                               :gravity => :center,
+                               :text_size => 40.0)
       @percentage_view = text_view(:text => "0%",
-                             :width => :match_parent,
-                             :gravity => :center,
-                             :text_size => 20.0)
+                                   :width => :match_parent,
+                                   :gravity => :center,
+                                   :text_size => 20.0)
       @time_view = text_view(:text => "0 sec/ans",
                              :width => :match_parent,
                              :gravity => :center,
