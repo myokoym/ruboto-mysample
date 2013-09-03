@@ -7,14 +7,14 @@ class MysampleActivity
   def on_create(bundle)
     super
     set_title("My samples")
-    self.content_view = content_layout
+    self.content_view = view
   rescue
     puts "Exception creating activity: #{$!}"
     puts $!.backtrace.join("\n")
   end
 
   private
-  def content_layout
+  def view
     linear_layout(:orientation => :vertical) do
       text_view(:text => "Take anything you would like.",
                 :id => 42,
@@ -78,11 +78,11 @@ class HelloSourceActivity
   def on_create(bundle)
     super
     set_title("Hello Source")
-    self.content_view = content_layout
+    self.content_view = view
   end
 
   private
-  def content_layout
+  def view
     scroll_view do
       linear_layout(:orientation => :vertical) do
         text_view(:text => File.open(__FILE__).read,
@@ -97,11 +97,11 @@ class SubActivity
   def on_create(bundle)
     super
     set_title("Sub Activity")
-    self.content_view = content_layout
+    self.content_view = view
   end
 
   private
-  def content_layout
+  def view
     linear_layout(:orientation => :vertical) do
       button(:text => "finish!",
              :on_click_listener => proc { self.finish })
@@ -113,11 +113,11 @@ class BrainTrainingActivity
   def on_create(bundle)
     super
     set_title("Brain Training")
-    self.content_view = content_layout
+    self.content_view = view
   end
 
   private
-  def content_layout
+  def view
     @start_time = Time.now
     @count = 0
     @passed = 0
@@ -181,11 +181,11 @@ class HitAndBlowActivity
   def on_create(bundle)
     super
     set_title("Hit and Blow")
-    self.content_view = content_layout
+    self.content_view = view
   end
 
   private
-  def content_layout
+  def view
     @digit = 4
     @answer = (0..9).to_a.sample(@digit).join
     @reply = Array.new(@digit) { "0" }
