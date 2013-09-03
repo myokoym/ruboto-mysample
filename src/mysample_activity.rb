@@ -1,7 +1,7 @@
 require "ruboto/widget"
 require "ruboto/util/toast"
 
-ruboto_import_widgets :Button, :LinearLayout, :TextView
+ruboto_import_widgets :Button, :LinearLayout, :TextView, :ScrollView
 
 class MysampleActivity
   def on_create(bundle)
@@ -22,10 +22,19 @@ class MysampleActivity
                 :gravity => :center,
                 :text_size => 20.0)
 
+      linear_layout(:orientation => :horizontal) do
       button(:text => "Hello, World!",
              :width => :match_parent,
+             :layout => {:weight= => 1},
              :id => 43,
              :on_click_listener => proc { hello })
+
+        button(:text => "source code",
+               :width => :match_parent,
+               :layout => {:weight= => 1},
+               :id => 47,
+               :on_click_listener => proc { hello_source })
+      end
 
       button(:text => "Sub Activity!",
              :width => :match_parent,
@@ -48,6 +57,10 @@ class MysampleActivity
     toast "Hello, World!"
   end
 
+  def hello_source
+    start_ruboto_activity(:class_name => HelloSourceActivity.name)
+  end
+
   def sub_activity
     start_ruboto_activity(:class_name => SubActivity.name)
   end
@@ -58,6 +71,25 @@ class MysampleActivity
 
   def hit_and_blow
     start_ruboto_activity(:class_name => HitAndBlowActivity.name)
+  end
+end
+
+class HelloSourceActivity
+  def on_create(bundle)
+    super
+    set_title("Hello Source")
+    self.content_view = content_layout
+  end
+
+  private
+  def content_layout
+    scroll_view do
+      linear_layout(:orientation => :vertical) do
+        text_view(:text => File.open(__FILE__).read,
+                  :width => :match_parent,
+                  :text_size => 13.0)
+      end
+    end
   end
 end
 
