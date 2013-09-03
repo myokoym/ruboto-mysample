@@ -110,6 +110,14 @@ class SubActivity
 end
 
 class BrainTrainingActivity
+  def initialize
+    @start_time = Time.now
+    @count = 0
+    @passed = 0
+    @num1 = Random.rand(10)
+    @num2 = Random.rand(10)
+  end
+
   def on_create(bundle)
     super
     set_title("Brain Training")
@@ -118,11 +126,6 @@ class BrainTrainingActivity
 
   private
   def view
-    @start_time = Time.now
-    @count = 0
-    @passed = 0
-    @num1 = Random.rand(10)
-    @num2 = Random.rand(10)
     linear_layout(:orientation => :vertical) do
       @problem_view = text_view(:text => "#{@num1} < #{@num2}",
                                 :width => :match_parent,
@@ -178,6 +181,14 @@ class BrainTrainingActivity
 end
 
 class HitAndBlowActivity
+  def initialize
+    @digit = 4
+    @answer = (0..9).to_a.sample(@digit).join
+    @reply = Array.new(@digit) { "0" }
+    @num_views = []
+    @trial = 0
+  end
+
   def on_create(bundle)
     super
     set_title("Hit and Blow")
@@ -186,11 +197,6 @@ class HitAndBlowActivity
 
   private
   def view
-    @digit = 4
-    @answer = (0..9).to_a.sample(@digit).join
-    @reply = Array.new(@digit) { "0" }
-    @num_views = []
-    @trial = 0
     linear_layout(:orientation => :vertical) do
       @hit_view = text_view(:text => "Hit: ?",
                             :width => :match_parent,
