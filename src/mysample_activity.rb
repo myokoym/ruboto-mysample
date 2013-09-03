@@ -23,11 +23,11 @@ class MysampleActivity
                 :text_size => 20.0)
 
       linear_layout(:orientation => :horizontal) do
-      button(:text => "Hello, World!",
-             :width => :match_parent,
-             :layout => {:weight= => 1},
-             :id => 43,
-             :on_click_listener => proc { hello })
+        button(:text => "Hello, World!",
+               :width => :match_parent,
+               :layout => {:weight= => 1},
+               :id => 43,
+               :on_click_listener => proc { hello })
 
         button(:text => "source code",
                :width => :match_parent,
